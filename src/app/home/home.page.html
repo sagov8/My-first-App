@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/places"></ion-back-button>
+        </ion-buttons>
         <ion-title>
             My first App
         </ion-title>
@@ -7,14 +10,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-    </ion-header>
-
-    <div id="container">
-        <strong>Esta aplicación dice</strong>
-        <p>Me pones en tensión cuando bailas <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=TPw7g2ZkpZw">asi</a></p>
-    </div>
+    <ion-list>
+        <ion-card *ngFor="let photo of photos">
+            <img [src]="photo.thumbnailUrl">
+            <ion-card-content>
+                <p>{{ photo.title }}</p>
+                <p>{{ photo.albumId }}</p>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
 </ion-content>
